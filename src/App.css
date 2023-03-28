@@ -47,7 +47,7 @@ body {
 .social-media-container {
   position: fixed;
   bottom: 0;
-  left: 2rem;
+  left: 3%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -60,6 +60,13 @@ body {
   margin: 0px auto;
   background-color: var(--light-slate);
 }
+@media only screen and (max-width: 500px) {
+  .social-media-container {
+    position: fixed;
+    width: max-content;
+    left: 0;
+  }
+}
 
 .social-media-button {
   margin-top: 1rem;
@@ -69,7 +76,7 @@ body {
 .email-container {
   position: fixed;
   bottom: 0;
-  right: 2rem;
+  right: -1%;
   color: white;
   display: flex;
   flex-direction: column;
@@ -86,9 +93,17 @@ body {
   margin-bottom: 5rem;
   transform: rotate(90deg);
 }
+@media only screen and (max-width: 500px) {
+  .email-container {
+    position: fixed;
+    width: max-content;
+    right: -4rem;
+  }
+}
 
 .container {
   max-width: 85%;
+  height: max-content;
 }
 
 .intro-start {
@@ -111,19 +126,12 @@ body {
 .intro-body {
   color: var(--slate);
   max-width: 60%;
-  font-size: clamp(30px, 3vw, 30px);
+  font-size: 1rem;
 }
-
-.work-container {
-  height: 50%;
-}
-.work-container::after span.line {
-  position: absolute;
-  width: 1px;
-  background-color: #ff4c60;
-  top: 30px;
-  bottom: 30px;
-  left: 30px;
+@media only screen and (max-width: 400px) {
+  .intro-body {
+    font-size: 2rem;
+  }
 }
 
 .timeline {
@@ -187,4 +195,26 @@ body {
     color: #34ace0;
     font-size: 15px;
   }
+}
+
+.work-container::after span.line {
+  position: absolute;
+  width: 1px;
+  background-color: #ff4c60;
+  top: 30px;
+  bottom: 30px;
+  left: 30px;
+}
+
+.projects-container::after span.line {
+  position: absolute;
+  width: 1px;
+  background-color: #ff4c60;
+  top: 30px;
+  bottom: 30px;
+  left: 30px;
+}
+section {
+  padding: 100px 0;
+  margin: 0px auto;
 }

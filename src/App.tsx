@@ -1,4 +1,4 @@
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import "./App.css";
 
 interface WorkExperience {
@@ -45,9 +45,9 @@ const workExperience: Array<WorkExperience> = [
   {
     id: "3",
     designation: "React Native Developer (Internship)",
-    organization: "Josh Software Pvt. Ltd.",
-    fromDate: "01/2021",
-    toDate: "07/2021",
+    organization: "Expert English Academy",
+    fromDate: "03/2020",
+    toDate: "03/2020",
     description: [
       "Desgined screens using Figma and implemented UI on React Native.",
       "Designed UI elements and integrated REST APIs",
@@ -143,7 +143,7 @@ function App() {
           </div>
         </Container>
       </section>
-      <section id="work">
+      <section id="work" style={{ padding: "100px 0%" }}>
         <Container className="work-container">
           <Row>
             <Col>
@@ -169,7 +169,8 @@ function App() {
           </Row>
         </Container>
       </section>
-      {/* <section id="cards">
+
+      <section id="cards">
         <Container>
           <Row>
             {[1, 2, 3, 4, 5, 6, 7, 8].map((e) => (
@@ -189,7 +190,7 @@ function App() {
             ))}
           </Row>
         </Container>
-      </section> */}
+      </section>
 
       <div className="social-media-container">
         <Button className="social-media-button">A</Button>
