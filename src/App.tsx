@@ -56,6 +56,36 @@ const workExperience: Array<WorkExperience> = [
   },
 ];
 
+const educationExperience: Array<WorkExperience> = [
+  {
+    id: "1",
+    designation: "Bachelor of Engineering",
+    organization: "Savitribai Phule Pune University",
+    fromDate: "2017",
+    toDate: "2021",
+    description: ["SGPA: 9.15"],
+    techStack: "",
+  },
+  {
+    id: "2",
+    designation: "HSC (12 th)",
+    organization: "MSBSHSE (Santaji Mahavidyalaya)",
+    fromDate: "2015",
+    toDate: "2017",
+    description: ["Percentage: 78.3%"],
+    techStack: "",
+  },
+  {
+    id: "3",
+    designation: "SSC (10 th)",
+    organization: "CBSE (Narayana Vidyalayam)",
+    fromDate: "",
+    toDate: "2015",
+    description: ["CGPA: 9.6, Percentage: 89.8%"],
+    techStack: "",
+  },
+];
+
 const WorkCard = ({ work }: { work?: WorkExperience }) => {
   return (
     <li>
@@ -66,7 +96,9 @@ const WorkCard = ({ work }: { work?: WorkExperience }) => {
           {work?.fromDate} - {work?.toDate}
         </h3>
         <p>
-          <ul>{work?.description}</ul>
+          {(work?.description as Array<string>)?.length > 0 && (
+            <ul>{work?.description}</ul>
+          )}
         </p>
       </div>
     </li>
@@ -113,11 +145,10 @@ function App() {
       </section>
       <section id="work">
         <Container className="work-container">
-          <h1 className="text-light">Work</h1>
-
           <Row>
             <Col>
               <div className="timeline">
+                <h2>Work Experience</h2>
                 <ul>
                   {workExperience.map((work) => {
                     return <WorkCard work={work} />;
@@ -126,10 +157,10 @@ function App() {
               </div>
             </Col>
             <Col>
-              {" "}
               <div className="timeline">
+                <h2>Education</h2>
                 <ul>
-                  {workExperience.map((work) => {
+                  {educationExperience.map((work) => {
                     return <WorkCard work={work} />;
                   })}
                 </ul>
