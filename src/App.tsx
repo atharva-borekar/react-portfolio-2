@@ -104,7 +104,7 @@ const WorkCard = ({ work }: { work?: WorkExperience }) => {
           {(work?.description as Array<string>)?.length > 0 && (
             <ul>
               {work?.description.map((e) => {
-                return <p className="fs-6 my-0">{e}</p>;
+                return <p className="my-0">{e}</p>;
               })}
             </ul>
           )}
@@ -114,20 +114,119 @@ const WorkCard = ({ work }: { work?: WorkExperience }) => {
   );
 };
 
-const ProjectCard = () => {
+const projects = [
+  {
+    id: 1,
+    name: "React Easy Deploy",
+    description: [
+      "Install necessary npm packages.",
+      "Create a production build locally.",
+      "Transfer the build to the server specified.",
+      "Install and configure NGINX server on AWS instance.",
+    ],
+    footer: [],
+    summary:
+      "React Easy Deploy is a promise driven script to help you in deploying your React.Js application with ease. Tech Stack: Node.Js, SSH2, AWS EC2",
+    github: "https://github.com/atharva-borekar/react-deploy-v1",
+    website: "https://www.npmjs.com/package/react-easy-deploy?activeTab=readme",
+  },
+  {
+    id: 2,
+    name: "Portfolio",
+    description: [
+      "A front-end developer portfolio to showcase skills, work experience. work samples, and contact information.",
+      "Install necessary npm packages. ",
+      "Create a production build locally. ",
+      "Transfer the build to the server specified. ",
+      "Install and configure NGINX server on AWS instance.",
+    ],
+    footer: [],
+    summary:
+      "A front-end developer portfolio to showcase skills, work experience. work samples, and contact information. Tech Stack: React.Js, TypeScript, React Router, HTML/CSS, Bootstrap, SCSS",
+    github: "https://github.com/atharva-borekar/react-portfolio",
+  },
+  {
+    id: 3,
+    name: "Job Referral System",
+    description: [
+      "The Job Referral App is a platform where companies can ask their Employees for referrals for the posts generated in the company. ",
+      "The recruiters will be able to post the requirements and the Employees will be able to view the posts, ask doubts in the comments section and also post the referrals to the employer.",
+    ],
+    footer: [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    ],
+    summary:
+      "Mobile app made using React Native for entry at Vyomlabs Hackathon, for developing system for referrals inside organization. Tech Stack: React Native, JavaScript, Java",
+    github: "https://github.com/atharva-borekar/jobReferralSystem",
+  },
+
+  {
+    id: 4,
+    name: "The Modern Times",
+    description: [
+      "This project is made to be deployed in P.E.S Modern College of Engineering for better information sharing inside the college.",
+      "You can make changes to this project and deploy it in your systems as well.",
+    ],
+    footer: [],
+    summary:
+      "Mobile app made using Android SDK to broadcast events and information across college. Tech Stack: Android Studio, Android SDK, Java, XML",
+    github: "https://github.com/atharva-borekar/TheModernTimes",
+  },
+  {
+    id: 5,
+    name: "Hashgame",
+    description: [
+      "Install necessary npm packages.",
+      "Create a production build locally.",
+      "Transfer the build to the server specified.",
+      "Install and configure NGINX server on AWS instance.",
+    ],
+    footer: [],
+    summary:
+      "A simple game made in Python using Pygame demonstrating the concepts of Hashing concepts. Tech Stack: Python, Pygame, Adobe Photoshop",
+    github: "https://github.com/atharva-borekar/Hashgame",
+  },
+];
+const ProjectCard = ({
+  project,
+}: {
+  project: {
+    id: number;
+    name: string;
+    description: string[];
+    footer: string[];
+    summary: string;
+    github?: string;
+    website?: string;
+  };
+}) => {
   return (
     <div className="card my-5">
       <div className="card-image">
-        <div className="p-3">React Easy Deploy</div>
+        <div className="p-3">
+          <h2>{project.name}</h2>
+        </div>
+        <div className="ml-3 px-5">
+          <ul>
+            {project.description.map((e, index) => {
+              return <li key={index}>{e}</li>;
+            })}
+          </ul>
+        </div>
+        <div className="px-5">
+          <Button onClick={() => window.open(project.github, "_blank")}>
+            Github
+          </Button>
+        </div>
+        <div className="px-5">
+          <Button onClick={() => window.open(project.website, "_blank")}>
+            Website
+          </Button>
+        </div>
       </div>
       <div className="card-description">
-        <p className="text-title"> Card Title</p>
-        <p className="text-body">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor. Lorem ipsum dolor sit amet, consectetur adipiscing
-          elit, sed do eiusmod tempor. Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit, sed do eiusmod tempor.
-        </p>
+        <p className="text-title">{project.name}</p>
+        <p className="text-body">{project.summary}</p>
       </div>
     </div>
   );
@@ -200,17 +299,18 @@ function App() {
 
       <section id="cards">
         <Container>
+          <h2 className="text-light">Projects</h2>
           <div className="projects-container">
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((e) => (
-              <ProjectCard />
+            {projects.map((e) => (
+              <ProjectCard project={e} />
             ))}
           </div>
         </Container>
       </section>
 
       <div className="social-media-container">
-        <Button className="social-media-button">A</Button>
-        <Button className="social-media-button">A</Button>
+        <Button className="social-media-button">Github</Button>
+        <Button className="social-media-button">LinkedIn</Button>
         <Button className="social-media-button">A</Button>
         <Button className="social-media-button">A</Button>
       </div>
