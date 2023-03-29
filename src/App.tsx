@@ -1,4 +1,5 @@
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { useEffect } from "react";
+import { Button, Col, Container, Nav, Navbar, Row } from "react-bootstrap";
 import { CgWebsite } from "react-icons/cg";
 import { FaFileAlt, FaGithubSquare, FaLinkedin } from "react-icons/fa";
 import "./App.css";
@@ -239,17 +240,42 @@ const ProjectCard = ({
           </ul>
         </div>
       </div>
-      {/* <div className="card-description">
-        <p className="text-body">{project.summary}</p>
-      </div> */}
     </div>
   );
 };
 
+function CollapsibleExample() {
+  return (
+    <Navbar collapseOnSelect fixed="top" expand="lg" bg="dark" variant="dark">
+      <Container>
+        <Navbar.Brand href="#home" className="navbar-brand">
+          AB
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto"></Nav>
+          <Nav>
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#work">Work</Nav.Link>
+            <Nav.Link href="#projects">Projects</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
+}
+
+function toggleZoomScreen() {
+  (document.body.style as any).zoom = "80%";
+}
 function App() {
+  useEffect(() => {
+    toggleZoomScreen();
+  }, []);
   return (
     <div className="main">
-      <section>
+      <CollapsibleExample />
+      <section id="home">
         <Container>
           <div className="intro-start">
             <h1>Hi, my name is</h1>
@@ -311,7 +337,7 @@ function App() {
         </Container>
       </section>
 
-      <section id="cards">
+      <section id="projects">
         <Container>
           <h2 className="text-light">Projects</h2>
           <div className="projects-container">

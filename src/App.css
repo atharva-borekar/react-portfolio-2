@@ -44,6 +44,13 @@
 body {
   background-color: var(--navy);
 }
+
+.navbar-brand {
+  height: max-content;
+  font-weight: 600;
+  font-size: 2rem;
+}
+
 .social-media-container {
   position: fixed;
   bottom: 0;
@@ -405,4 +412,8 @@ body {
 }
 .pointer:hover {
   cursor: pointer;
+}
+
+.toggle-zoom {
+  display: none;
 }
