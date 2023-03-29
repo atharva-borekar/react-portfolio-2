@@ -148,6 +148,9 @@ body {
   .intro-body {
     font-size: 1rem;
   }
+  .intro-start {
+    margin-top: 30%;
+  }
 }
 
 .timeline {
