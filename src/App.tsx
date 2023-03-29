@@ -1,4 +1,6 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
+import { CgWebsite } from "react-icons/cg";
+import { FaFileAlt, FaGithubSquare, FaLinkedin } from "react-icons/fa";
 import "./App.css";
 
 interface WorkExperience {
@@ -142,7 +144,7 @@ const projects = [
     ],
     footer: [],
     summary:
-      "A front-end developer portfolio to showcase skills, work experience. work samples, and contact information. Tech Stack: React.Js, TypeScript, React Router, HTML/CSS, Bootstrap, SCSS",
+      "A front-end developer portfolio to showcase skills, work experience. work samples, and contact information. Tech Stack: React.Js, TypeScript, HTML/CSS, Bootstrap, SCSS",
     github: "https://github.com/atharva-borekar/react-portfolio",
   },
   {
@@ -203,31 +205,43 @@ const ProjectCard = ({
   return (
     <div className="card my-5">
       <div className="card-image">
-        <div className="p-3">
+        <div className="p-3 d-flex justify-content-between">
           <h2>{project.name}</h2>
+          <div className="px-5">
+            {project?.github && (
+              <FaGithubSquare
+                size={50}
+                className="swing mx-2 pointer"
+                title="Github"
+                onClick={() => {
+                  window.open(project.github, "_blank");
+                }}
+              />
+            )}
+            {project?.website && (
+              <CgWebsite
+                size={50}
+                className="swing mx-2 pointer"
+                title="Website"
+                onClick={() => {
+                  window.open(project.website, "_blank");
+                }}
+              />
+            )}
+          </div>
         </div>
-        <div className="ml-3 px-5">
+        <div className="ml-3 px-5 text-light">
+          <p>{project.summary}</p>
           <ul>
             {project.description.map((e, index) => {
               return <li key={index}>{e}</li>;
             })}
           </ul>
         </div>
-        <div className="px-5">
-          <Button onClick={() => window.open(project.github, "_blank")}>
-            Github
-          </Button>
-        </div>
-        <div className="px-5">
-          <Button onClick={() => window.open(project.website, "_blank")}>
-            Website
-          </Button>
-        </div>
       </div>
-      <div className="card-description">
-        <p className="text-title">{project.name}</p>
+      {/* <div className="card-description">
         <p className="text-body">{project.summary}</p>
-      </div>
+      </div> */}
     </div>
   );
 };
@@ -309,10 +323,36 @@ function App() {
       </section>
 
       <div className="social-media-container">
-        <Button className="social-media-button">Github</Button>
-        <Button className="social-media-button">LinkedIn</Button>
-        <Button className="social-media-button">A</Button>
-        <Button className="social-media-button">A</Button>
+        <FaGithubSquare
+          size={50}
+          className="swing mx-2 pointer text-light my-3"
+          title="Github"
+          onClick={() => {
+            window.open("https://github.com/atharva-borekar", "_blank");
+          }}
+        />
+        <FaLinkedin
+          size={50}
+          className="swing mx-2 pointer text-light my-3"
+          title="LinkedIn"
+          onClick={() => {
+            window.open(
+              "https://www.linkedin.com/in/atharva-borekar-30590619a/",
+              "_blank"
+            );
+          }}
+        />
+        <FaFileAlt
+          size={50}
+          className="swing mx-2 pointer text-light my-3"
+          title="Resume"
+          onClick={() => {
+            window.open(
+              "https://drive.google.com/file/d/1VJKISufX0sJiWDLoohXPw2hrJYsIgbIo/view?usp=sharing",
+              "_blank"
+            );
+          }}
+        />
       </div>
       <div className="email-container">
         <p>athessi10@gmail.com</p>
