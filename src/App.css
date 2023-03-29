@@ -143,7 +143,6 @@ body {
 .intro-body {
   color: var(--slate);
   max-width: 60%;
-  font-size: 1.75rem;
 }
 @media only screen and (max-width: 768px) {
   .intro-body {
@@ -230,11 +229,12 @@ body {
   width: 80%;
   position: relative;
   transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
-  box-shadow: 0 0 5px 5px var(--dark-slate);
+  box-shadow: 0 0 5px 5px var(--dark-navy);
   -webkit-transition: 0.4s ease-in-out opacity;
   -moz-transition: 0.4s ease-in-out opacity;
   -o-transition: 0.4s ease-in-out opacity;
   transition: 0.4s ease-in-out opacity;
+  border: 0px;
 }
 
 /*Image*/
@@ -245,7 +245,6 @@ body {
   transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1);
   color: var(--slate);
   background: linear-gradient(to right, var(--dark-navy), var(--light-navy));
-  font-size: 1.75rem;
   max-height: 100%;
   overflow: auto;
 }
@@ -259,7 +258,6 @@ body {
   position: absolute;
   gap: 1em;
   flex-direction: column;
-  background-color: #f5f5f5;
   height: 100%;
   bottom: 0;
   transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -296,7 +294,7 @@ body {
 }
 .projects-container .card:nth-child(odd) .card-description::after {
   content: "";
-  background-color: var(--dark-slate);
+  /* background-color: var(--dark-slate); */
   height: 50px;
   width: 50px;
   position: relative;
