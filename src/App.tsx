@@ -1,4 +1,4 @@
-import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import "./App.css";
 
 interface WorkExperience {
@@ -19,7 +19,7 @@ const workExperience: Array<WorkExperience> = [
     fromDate: "09/2021",
     toDate: "Present",
     description: [
-      "Part of team on 3 projects (2 production stage - solo contributor, 1 development stage) following agile methodologies.",
+      "Part of team on 3 project teams following agile methodologies.",
       "Designed and created UI elements and integrated REST APIs.",
       "Performed code reviews, monitored status of project and mentored freshers.",
       "Debugging, bug fixing and code optimization.",
@@ -63,7 +63,12 @@ const educationExperience: Array<WorkExperience> = [
     organization: "Savitribai Phule Pune University",
     fromDate: "2017",
     toDate: "2021",
-    description: ["SGPA: 9.15"],
+    description: [
+      "SGPA: 9.15",
+      "ACM Student Chapter Chair Person (09/2020 - 09/2021)",
+      "MPulse CodeFiesta Co-Head (02/2020)",
+      "Invicta (2020) Event Co-ordinator",
+    ],
     techStack: "",
   },
   {
@@ -97,11 +102,34 @@ const WorkCard = ({ work }: { work?: WorkExperience }) => {
         </h3>
         <p>
           {(work?.description as Array<string>)?.length > 0 && (
-            <ul>{work?.description}</ul>
+            <ul>
+              {work?.description.map((e) => {
+                return <p className="fs-6 my-0">{e}</p>;
+              })}
+            </ul>
           )}
         </p>
       </div>
     </li>
+  );
+};
+
+const ProjectCard = () => {
+  return (
+    <div className="card my-5">
+      <div className="card-image">
+        <div className="p-3">React Easy Deploy</div>
+      </div>
+      <div className="card-description">
+        <p className="text-title"> Card Title</p>
+        <p className="text-body">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor. Lorem ipsum dolor sit amet, consectetur adipiscing
+          elit, sed do eiusmod tempor. Lorem ipsum dolor sit amet, consectetur
+          adipiscing elit, sed do eiusmod tempor.
+        </p>
+      </div>
+    </div>
   );
 };
 
@@ -146,7 +174,7 @@ function App() {
       <section id="work" style={{ padding: "100px 0%" }}>
         <Container className="work-container">
           <Row>
-            <Col>
+            <Col className="my-2">
               <div className="timeline">
                 <h2>Work Experience</h2>
                 <ul>
@@ -156,7 +184,7 @@ function App() {
                 </ul>
               </div>
             </Col>
-            <Col>
+            <Col className="my-2">
               <div className="timeline">
                 <h2>Education</h2>
                 <ul>
@@ -172,23 +200,11 @@ function App() {
 
       <section id="cards">
         <Container>
-          <Row>
+          <div className="projects-container">
             {[1, 2, 3, 4, 5, 6, 7, 8].map((e) => (
-              <Col key={e} xl={6} lg={6} sm={6}>
-                <Card className="bg-dark my-3">
-                  <Card.Img variant="top" src="holder.js/100px180" />
-                  <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
-                    <Card.Text>
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
-                  </Card.Body>
-                </Card>
-              </Col>
+              <ProjectCard />
             ))}
-          </Row>
+          </div>
         </Container>
       </section>
 
