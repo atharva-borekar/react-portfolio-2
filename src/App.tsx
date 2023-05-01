@@ -138,10 +138,6 @@ const projects = [
     name: "Portfolio",
     description: [
       "A front-end developer portfolio to showcase skills, work experience. work samples, and contact information.",
-      "Install necessary npm packages. ",
-      "Create a production build locally. ",
-      "Transfer the build to the server specified. ",
-      "Install and configure NGINX server on AWS instance.",
     ],
     footer: [],
     summary:
