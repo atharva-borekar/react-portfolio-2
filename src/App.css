@@ -250,6 +250,7 @@ body {
   background: linear-gradient(to right, var(--dark-navy), var(--light-navy));
   max-height: 100%;
   overflow: auto;
+  font-size: 1.5rem;
 }
 .card-image::-webkit-scrollbar {
   display: none;
